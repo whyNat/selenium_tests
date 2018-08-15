@@ -17,11 +17,10 @@ def test_log_in(driver):
     driver.find_element_by_name('login').submit()
     WebDriverWait(driver, 15).until(EC.title_is('My Store'))
 
-    list_of_links = driver.find_elements_by_tag_name('h1')
+    list_of_links = driver.find_elements_by_tag_name('a')
 
-    for links in enumerate(list_of_links):
-        driver.implicitly_wait(4)
-        for link in enumerate(links):
-            link.click()
+    for link in list_of_links:
+        link.click()
+        title = driver.find_elements_by_tag_name('h1')
 
 

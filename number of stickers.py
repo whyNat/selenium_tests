@@ -20,9 +20,7 @@ def test_sticker_products(driver):
         number = driver.find_elements_by_xpath('//*[@class="sticker sale"]')
         number2 = driver.find_elements_by_xpath('//*[@class="sticker new"]')
         total = len(number) + len(number2)
-        if i in number:
-            assert total == len(list_of_products)
-        elif i in number2:
+        if i in number or i in number2:
             assert total == len(list_of_products)
         else:
             print('There\'s more than 1 sticker on product')

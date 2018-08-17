@@ -14,16 +14,16 @@ def test_sticker_products(driver):
     driver.get('http://localhost/litecart/en/')
     driver.find_element_by_xpath('//*[@id="box-category-tree"]/ul/li/a').click()
 
-    list_of_products = driver.find_elements_by_xpath('//*[class="col-xs-6 col-sm-4 col-md-3"]')
+    list_of_products = driver.find_elements_by_class_name('image img-responsive')
+    count_products =  len(list_of_products)
+    number = driver.find_elements_by_xpath('//*[@id="box-category"]/img[contains(@class, "sticker")')
+    count_stickers = len(number)
 
     for i in list_of_products:
-        number = driver.find_elements_by_xpath('//*[@class="sticker sale"]')
-        number2 = driver.find_elements_by_xpath('//*[@class="sticker new"]')
-        total = len(number) + len(number2)
-        if i in number or i in number2:
-            assert total == len(list_of_products)
-        else:
-            print('There\'s more than 1 sticker on product')
+        assert count_products == count_stickers
+    else:
+        print('There\'s more than 1 sticker on product')
+
 
 
 

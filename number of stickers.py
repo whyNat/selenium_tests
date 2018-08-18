@@ -20,9 +20,13 @@ def test_sticker_products(driver):
     count_stickers = len(number)
 
     for i in list_of_products:
-        assert count_products == count_stickers
-    else:
-        print('There\'s more than 1 sticker on product')
+        if count_products == count_stickers:
+            print('There\'s only than 1 sticker on product')
+        else:
+            print('There\'s more than 1 sticker on product')
+
+
+
 
 
 

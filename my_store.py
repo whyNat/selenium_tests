@@ -16,4 +16,3 @@ def test_my_store(driver):
     driver.find_element_by_name('password').send_keys('admin')
     driver.find_element_by_name('login').submit()
     WebDriverWait(driver, 10).until(EC.title_is('My Store'))
-

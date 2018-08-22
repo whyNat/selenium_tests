@@ -15,7 +15,7 @@ def test_sticker_products(driver):
     driver.find_element_by_xpath('//*[@id="box-category-tree"]/ul/li/a').click()
 
     list_of_products = driver.find_elements_by_class_name('image img-responsive')
-    count_products =  len(list_of_products)
+    count_products = len(list_of_products)
     number = driver.find_elements_by_xpath('//*[@id="box-category"]/img[contains(@class, "sticker")')
     count_stickers = len(number)
 

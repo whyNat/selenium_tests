@@ -1,9 +1,6 @@
 import pytest
 from selenium import webdriver
 import time
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import time
 
 @pytest.fixture
 def driver(request):

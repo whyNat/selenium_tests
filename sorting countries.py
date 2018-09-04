@@ -93,7 +93,7 @@ def test_checking_if_sorted_in_zones(driver):
                     m += 1
 
                 if not zones_sorted:
-                    print('Country' + countries[index] + ' has unsorted zones, DAMN IT!')
+                    pass #print('Country' + countries[index] + ' has unsorted zones, DAMN IT!')
 
                 #print(
                     #countries[index] + 'has' + countries_zone_nr[index] + 'zones!')  # << < HERE SKIP TO PREVIOUS PAGE`)

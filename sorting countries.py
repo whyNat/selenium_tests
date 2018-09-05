@@ -2,6 +2,10 @@ import pytest
 from selenium import webdriver
 import time
 
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+
 @pytest.fixture
 def driver(request):
     wd = webdriver.Chrome()
@@ -18,7 +22,7 @@ def test_checking_if_sorted_countries(driver):
     time.sleep(5)
     driver.find_element_by_xpath('//*[@id="box-apps-menu-wrapper"]//li[3]/a/span[@class="name"]').click()
 
-    sort_element = driver.find_elements_by_xpath('//*[@id="main"]//td[5]/a')
+    sort_element = driver.find_elements_by_xpath('//*[@id="main"]//td[2]/input')
     country_names = []
 
     for i in sort_element:
@@ -55,13 +59,11 @@ def test_checking_if_sorted_in_zones(driver):
 
 
 
-
     still_finding_zones = True
     index = 0
 
     while (still_finding_zones):
-        countries_zone_nr = driver.find_elements_by_xpath(
-            '//*[@id="main"]//td[6][@class="text-center"]')  # driver.elements.getXPath...
+        countries_zone_nr = driver.find_elements_by_xpath('//*[@id="main"]//td[6][@class="text-center"]')  # driver.elements.getXPath...
         countries = driver.find_elements_by_xpath('//*[@id ="main"]//td[5]/a')  # driver.elements.getXPath...
 
         zones_exist = False
@@ -95,8 +97,7 @@ def test_checking_if_sorted_in_zones(driver):
                 if not zones_sorted:
                     pass #print('Country' + countries[index] + ' has unsorted zones, DAMN IT!')
 
-                #print(
-                    #countries[index] + 'has' + countries_zone_nr[index] + 'zones!')  # << < HERE SKIP TO PREVIOUS PAGE`)
+                print(str(countries[index]), 'has' + str(countries_zone_nr[index]), 'zones!')  # << < HERE SKIP TO PREVIOUS PAGE`)
                 zones_exist = True
                 break
 
